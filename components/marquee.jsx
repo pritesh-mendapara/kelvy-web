@@ -6,12 +6,13 @@ const Marque = () => {
         <Marquee speed={100} autoFill gradient={true}>
             {[1, 2, 3, 4, 5, 6].map((num) => (
                 <Image
-                    src={`/c-${num}.png`}
+                    src={`/m-${num}.png`}
                     key={num}
                     width={300}
                     height={300}
                     alt={`Marquee Image ${num}`}
-                    className="mx-10 h-24 w-full object-contain grayscale transition-all duration-300 hover:grayscale-0 sm:h-40"
+                    // hover:grayscale-0 grayscale
+                    className="mx-10 h-24 w-full object-contain transition-all duration-300 sm:h-40"
                 />
             ))}
         </Marquee>

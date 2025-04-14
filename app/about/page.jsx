@@ -8,7 +8,7 @@ const Page = () => {
                 <h1 className="text-primary-200 text-center text-[clamp(2rem,5vw,4rem)] font-semibold">Contact US</h1>
                 <div className="mb-10 flex flex-col items-start gap-6 lg:flex-row">
                     <div className="w-full lg:w-1/2">
-                        <Image src="/pulses.png" height={400} width={400} className="aspect-[3/2] h-auto w-full object-cover" alt="image-1" />
+                        <Image src="/our-company.jpg" height={400} width={400} className="aspect-[3/2] h-auto w-full object-cover" alt="image-1" />
                     </div>
                     <div className="w-full space-y-4 text-justify text-black/60 lg:w-1/2">
                         <h3 className="text-primary-100 text-left text-[clamp(1.5rem,3vw,2.5rem)] font-semibold">About Kelvy Overseas​</h3>
@@ -34,7 +34,7 @@ const Page = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
 
-                <h2 className="text-primary-100 mb-10 text-center text-4xl font-semibold mt-10">Membership & Registration</h2>
+                <h2 className="text-primary-100 mt-10 mb-10 text-center text-4xl font-semibold">Membership & Registration</h2>
                 <Marque />
             </div>
         </div>

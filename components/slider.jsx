@@ -8,13 +8,25 @@ const slides = [
         id: 1,
         title: "Eco-Friendly Solutions",
         description: "Innovative products for a sustainable lifestyle.",
-        image: "https://www.ship-technology.com/wp-content/uploads/sites/8/2024/03/biggest-cruise-ships-in-the-world.jpg",
+        image: "/s-1.jpg",
     },
     {
         id: 2,
         title: "Think Green, Act Green",
         description: "Eco-friendly alternatives for daily use.",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/QE2-South_Queensferry.jpg/800px-QE2-South_Queensferry.jpg",
+        image: "/s-2.jpg",
+    },
+    {
+        id: 3,
+        title: "Think Green, Act Green",
+        description: "Eco-friendly alternatives for daily use.",
+        image: "/s-3.jpg",
+    },
+    {
+        id: 4,
+        title: "Think Green, Act Green",
+        description: "Eco-friendly alternatives for daily use.",
+        image: "/s-4.jpg",
     },
 ];
 
@@ -35,7 +47,7 @@ const Slider = () => {
                 {slides.map((slide, index) => (
                     <motion.div
                         key={slide.id}
-                        className="absolute inset-0 -z-0 h-full w-full bg-cover bg-fixed bg-center"
+                        className={`absolute inset-0 -z-0 h-full w-full bg-cover bg-fixed bg-center ${index === 0 && "rotate-180"} bg-top`}
                         style={{ backgroundImage: `url(${slide.image})` }}
                         initial={{ opacity: index === currentIndex ? 1 : 0 }}
                         animate={{ opacity: index === currentIndex ? 1 : 0 }}
@@ -44,7 +56,7 @@ const Slider = () => {
                 ))}
             </AnimatePresence>
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 p-4 text-center text-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 p-4 text-center text-white">
                 <motion.h2
                     key={slides[currentIndex].title}
                     className="mb-2 text-4xl font-bold"

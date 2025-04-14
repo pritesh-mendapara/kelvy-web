@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
                     <div>
                         <Image src="/logo.png" className="h-20 w-fit" width={150} height={50} alt="Logo" />
-                        <p className="mt-3 text-sm text-white/80">Your company tagline or description.</p>
+                        <p className="mt-3 text-sm text-white/80">Bridging Global Markets with Quality & Trust.</p>
                     </div>
                     <div>
                         <h3 className="mb-3 text-lg font-semibold text-white">Contact</h3>

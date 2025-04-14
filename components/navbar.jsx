@@ -91,7 +91,7 @@ const Navbar = () => {
                                     <Link href="/">Home</Link>
                                 </li>
                                 <li className="hover:text-primary-100 cursor-pointer">
-                                    <Link href="/about">Our Company</Link>v
+                                    <Link href="/about">Our Company</Link>
                                 </li>
                                 <li className="hover:text-primary-100 cursor-pointer">
                                     <Link href="/product">Product</Link>

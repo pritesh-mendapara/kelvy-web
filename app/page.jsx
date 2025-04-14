@@ -16,9 +16,10 @@ const Page = () => {
                         {WHY_CHOOSE_US.map((item, index) => (
                             <div key={index} className="p-4">
                                 <div className="border-primary-300 aspect-3/2 overflow-hidden border-b-8 pb-4">
-                                    <Image src={`/${item.image}`} height={300} width={300} className="h-40 w-40 object-cover" alt={`image-${index + 1}`} />
+                                    <Image src={`/${item.image}`} height={600} width={600} className="h-full w-full object-contain" alt={`image-${index + 1}`} />
                                 </div>
-                                <p className="mt-3 text-base font-medium text-gray-500">{item.description}</p>
+                                <h3 className="text-primary-100 mt-3 text-center font-semibold">{item.title}</h3>
+                                <p className="mt-2 text-center text-base font-medium text-gray-500">{item.description}</p>
                             </div>
                         ))}
                     </div>
@@ -36,11 +37,11 @@ const Page = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="mt-10 text-center">
+                    {/* <div className="mt-10 text-center">
                         <Button className="bg-primary-100 hover:bg-primary-100/90 cursor-pointer p-5 text-lg">
                             Show More <MdOutlineArrowRightAlt className="size-7" />
                         </Button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="container m-auto">
