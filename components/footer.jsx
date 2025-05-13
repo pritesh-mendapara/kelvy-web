@@ -3,7 +3,7 @@ import { Mail, Phone } from "lucide-react";
 
 const Footer = () => {
     return (
-        <footer className="bg-gradient-to-br from-[#3F51B5] to-[#757de8] pt-10 pb-5">
+        <footer className="from-primary-300 to-primary-100 bg-gradient-to-br pt-10 pb-5">
             <div className="container mx-auto px-5">
                 <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
                     <div>
@@ -29,17 +29,17 @@ const Footer = () => {
                         <ul className="space-y-2 text-sm text-white/80">
                             <li>
                                 <a href="#" className="hover:text-white">
-                                    Category 1
+                                    Spices
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="hover:text-white">
-                                    Category 2
+                                    Grain & Pulses
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="hover:text-white">
-                                    Category 3
+                                    Tableware
                                 </a>
                             </li>
                         </ul>

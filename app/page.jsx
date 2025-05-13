@@ -28,7 +28,7 @@ const Page = () => {
             <div className="container m-auto">
                 <div className="my-10 p-3">
                     <h2 className="text-primary-100 mb-10 text-center text-4xl font-semibold">Product Range</h2>
-                    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+                    <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
                         {PRODUCT_RANGE.map((item, index) => (
                             <div key={index}>
                                 <div className="overflow-hidden rounded-lg">

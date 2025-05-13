@@ -6,27 +6,21 @@ import { motion, AnimatePresence } from "framer-motion";
 const slides = [
     {
         id: 1,
-        title: "Eco-Friendly Solutions",
-        description: "Innovative products for a sustainable lifestyle.",
+        title: "Aromatic & Authentic – The True Taste of Tradition",
+        description: "Sourced directly from farmers, our premium-quality spices bring rich aroma and taste to your Dishes.",
         image: "/s-1.jpg",
     },
     {
         id: 2,
-        title: "Think Green, Act Green",
-        description: "Eco-friendly alternatives for daily use.",
+        title: "Farm-Fresh Goodness – Packed with Nutrition!",
+        description: "High-quality pulses and lentils, sourced from trusted farms, delivering health and taste to your meals.",
         image: "/s-2.jpg",
     },
     {
         id: 3,
-        title: "Think Green, Act Green",
-        description: "Eco-friendly alternatives for daily use.",
+        title: "Go Green with Eco-Friendly Tableware",
+        description: "100% compostable and eco-friendly tableware made from natural sugarcane Bagasse fibers - perfect for a greener planet.",
         image: "/s-3.jpg",
-    },
-    {
-        id: 4,
-        title: "Think Green, Act Green",
-        description: "Eco-friendly alternatives for daily use.",
-        image: "/s-4.jpg",
     },
 ];
 
@@ -69,7 +63,7 @@ const Slider = () => {
                 </motion.h2>
                 <motion.p
                     key={slides[currentIndex].description}
-                    className="text-lg"
+                    className="text-lg max-w-2xl"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
