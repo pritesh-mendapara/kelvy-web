@@ -13,6 +13,7 @@ const Navbar = () => {
     const [hideAppbar, setHideAppbar] = useState(false);
     const [showProductDropdown, setShowProductDropdown] = useState(false);
     const [showSubProducts, setShowSubProducts] = useState({});
+    const [sheetOpen, setSheetOpen] = useState(false);
     const router = useRouter();
 
     const productCategories = [
@@ -31,14 +32,27 @@ const Navbar = () => {
             image: "/product/wheat.webp",
         },
         {
+            id: "pulses",
+            name: "Pulses",
+            image: "/product/brown-chickpeas.webp",
+        },
+        {
             id: "oilseeds",
             name: "Oil Seeds",
             image: "/product/white-sesame.webp",
         },
         {
-            id: "pulses",
-            name: "Pulses",
-            image: "/product/brown-chickpeas.webp",
+            id: "tableWare",
+            name: "Tableware",
+            image: "/1.jpg",
+            subProducts: [
+                { id: "roundPlates", name: "Round Plate", image: "/1.jpg" },
+                { id: "squarePlates", name: "Square Plate", image: "/2.jpg" },
+                { id: "bowls", name: "Bowl", image: "/3.jpg" },
+                { id: "mealTrays", name: "Meal Tray", image: "/4.jpg" },
+                { id: "clamShell", name: "Clam Shell", image: "/5.jpg" },
+                { id: "foodContainer", name: "Food Container", image: "/6.jpg" },
+            ],
         },
     ];
 
@@ -160,7 +174,7 @@ const Navbar = () => {
                         </li>
                     </ul>
 
-                    <Sheet>
+                    <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="icon" className="md:hidden">
                                 <Menu className="h-10 w-10" />
@@ -170,15 +184,19 @@ const Navbar = () => {
                             <SheetTitle className="sr-only">Menu</SheetTitle>
                             <ul className="text-text-100 mt-5 space-y-4 text-lg font-medium">
                                 <li className="hover:text-primary-100 cursor-pointer">
-                                    <Link href="/">Home</Link>
+                                    <Link href="/" onClick={() => setSheetOpen(false)}>
+                                        Home
+                                    </Link>
                                 </li>
                                 <li className="hover:text-primary-100 cursor-pointer">
-                                    <Link href="/about">Our Company</Link>
+                                    <Link href="/about" onClick={() => setSheetOpen(false)}>
+                                        Our Company
+                                    </Link>
                                 </li>
                                 <li className="hover:text-primary-100 cursor-pointer">
-                                    <div className="flex items-center justify-between">
-                                        <Link href="/product">Product</Link>
-                                        <Button variant="ghost" size="sm" className="p-0" onClick={() => setShowProductDropdown(!showProductDropdown)}>
+                                    <div className="flex items-center justify-between" onClick={() => setShowProductDropdown(!showProductDropdown)}>
+                                        <div>Product</div>
+                                        <Button variant="ghost" size="sm" className="p-0">
                                             <ChevronDown size={20} />
                                         </Button>
                                     </div>
@@ -189,9 +207,15 @@ const Navbar = () => {
                                                 <div key={index} className="space-y-2">
                                                     <div className="flex items-center gap-2">
                                                         <img src={category.image} alt={category.name} className="h-8 w-8 rounded-md object-cover" />
-                                                        <Link href="/product" className="text-base">
+                                                        <div
+                                                            onClick={() => {
+                                                                navigateToProducts(category.id);
+                                                                setSheetOpen(false);
+                                                            }}
+                                                            className="text-base"
+                                                        >
                                                             {category.name}
-                                                        </Link>
+                                                        </div>
                                                         {category.subProducts && category.subProducts.length > 0 && category.subProducts.map && (
                                                             <Button variant="ghost" size="sm" className="ml-auto p-0" onClick={() => handleCategoryHover(category.id, !showSubProducts[category.id])}>
                                                                 <ChevronDown size={16} />
@@ -202,10 +226,17 @@ const Navbar = () => {
                                                     {showSubProducts[category.id] && category.subProducts && category.subProducts.map && (
                                                         <div className="ml-6 space-y-2">
                                                             {category.subProducts.map((subProduct, index) => (
-                                                                <Link key={index} href="/product" className="flex items-center gap-2">
+                                                                <div
+                                                                    key={index}
+                                                                    onClick={() => {
+                                                                        navigateToProducts(category.id, subProduct.id);
+                                                                        setSheetOpen(false);
+                                                                    }}
+                                                                    className="flex items-center gap-2"
+                                                                >
                                                                     <img src={subProduct.image} alt={subProduct.name} className="h-6 w-6 rounded-md object-cover" />
                                                                     <span className="text-sm">{subProduct.name}</span>
-                                                                </Link>
+                                                                </div>
                                                             ))}
                                                         </div>
                                                     )}
@@ -215,7 +246,9 @@ const Navbar = () => {
                                     )}
                                 </li>
                                 <li className="hover:text-primary-100 cursor-pointer">
-                                    <Link href="/contact">Contact</Link>
+                                    <Link href="/contact" onClick={() => setSheetOpen(false)}>
+                                        Contact
+                                    </Link>
                                 </li>
                             </ul>
                         </SheetContent>

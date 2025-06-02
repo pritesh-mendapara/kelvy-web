@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
                 {isHovered && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 p-3 text-center text-white transition-all duration-300">
                         <h3 className="mb-1 text-base font-semibold">{product.name}</h3>
-                        <p className="text-xs leading-tight">{product.description}</p>
+                        <p className="text-xs leading-tight" dangerouslySetInnerHTML={{ __html: product.description.replace(/\n/g, "<br />") }} />
                     </div>
                 )}
             </div>
@@ -37,6 +37,7 @@ const ProductPage = () => {
 
     const [activeCategory, setActiveCategory] = useState("all");
     const [activeSpiceSubCategory, setActiveSpiceSubCategory] = useState("all");
+    const [activeTableWareSubCategory, setActiveTableWareSubCategory] = useState("all");
 
     useEffect(() => {
         if (categoryParam) {
@@ -44,6 +45,10 @@ const ProductPage = () => {
 
             if (categoryParam === "spices" && subCategoryParam) {
                 setActiveSpiceSubCategory(subCategoryParam);
+            }
+
+            if (categoryParam === "tableWare" && subCategoryParam) {
+                setActiveTableWareSubCategory(subCategoryParam);
             }
         }
     }, [categoryParam, subCategoryParam]);
@@ -103,6 +108,72 @@ const ProductPage = () => {
             });
         });
 
+        PRODUCTS.tableWare.roundPlates.forEach((product, index) => {
+            products.push({
+                id: `round-plate-${index}`,
+                ...product,
+                name: product.name,
+                description: product.description,
+                category: "tableWare",
+                subCategory: "roundPlates",
+            });
+        });
+
+        PRODUCTS.tableWare.squarePlates.forEach((product, index) => {
+            products.push({
+                id: `square-plate-${index}`,
+                ...product,
+                name: product.name,
+                description: product.description,
+                category: "tableWare",
+                subCategory: "squarePlates",
+            });
+        });
+
+        PRODUCTS.tableWare.bowls.forEach((product, index) => {
+            products.push({
+                id: `bowls-${index}`,
+                ...product,
+                name: product.name,
+                description: product.description,
+                category: "tableWare",
+                subCategory: "bowls",
+            });
+        });
+
+        PRODUCTS.tableWare.mealTrays.forEach((product, index) => {
+            products.push({
+                id: `meal-trays-${index}`,
+                ...product,
+                name: product.name,
+                description: product.description,
+                category: "tableWare",
+                subCategory: "mealTrays",
+            });
+        });
+
+        PRODUCTS.tableWare.clamShell.forEach((product, index) => {
+            products.push({
+                id: `clam-shell-${index}`,
+                ...product,
+                name: product.name,
+                description: product.description,
+                category: "tableWare",
+                subCategory: "clamShell",
+            });
+        });
+
+        PRODUCTS.tableWare.foodContainer.forEach((product, index) => {
+            products.push({
+                id: `food-container-${index}`,
+                ...product,
+                name: product.name,
+                description: product.description,
+                category: "tableWare",
+                subCategory: "foodContainer",
+            });
+        });
+
         return products;
     };
 
@@ -117,6 +188,12 @@ const ProductPage = () => {
             } else {
                 return allProducts.filter((product) => product.category === "spices" && product.subCategory === activeSpiceSubCategory);
             }
+        } else if (activeCategory === "tableWare") {
+            if (activeTableWareSubCategory === "all") {
+                return allProducts.filter((product) => product.category === "tableWare");
+            } else {
+                return allProducts.filter((product) => product.category === "tableWare" && product.subCategory === activeTableWareSubCategory);
+            }
         } else {
             return allProducts.filter((product) => product.category === activeCategory);
         }
@@ -124,9 +201,10 @@ const ProductPage = () => {
     const categories = [
         { id: "all", name: "All Products" },
         { id: "spices", name: "Spices" },
-        { id: "pulses", name: "Pulses" },
         { id: "grains", name: "Grains" },
+        { id: "pulses", name: "Pulses" },
         { id: "oilseeds", name: "Oilseeds" },
+        { id: "tableWare", name: "Tableware" },
     ];
 
     const spiceSubCategories = [
@@ -135,9 +213,20 @@ const ProductPage = () => {
         { id: "whole", name: "Whole Spices" },
     ];
 
+    const tableWareSubCategories = [
+        { id: "all", name: "All Tableware" },
+        { id: "roundPlates", name: "Round Plates" },
+        { id: "squarePlates", name: "Square Plates" },
+        { id: "bowls", name: "Bowls" },
+        { id: "mealTrays", name: "Meal Trays" },
+        { id: "clamShell", name: "Clam Shells" },
+        { id: "foodContainer", name: "Food Containers" },
+    ];
+
     const handleCategoryChange = (categoryId) => {
         setActiveCategory(categoryId);
         setActiveSpiceSubCategory("all");
+        setActiveTableWareSubCategory("all");
 
         const url = new URL(window.location.href);
         url.searchParams.set("category", categoryId);
@@ -147,6 +236,7 @@ const ProductPage = () => {
 
     const handleSubCategoryChange = (subCategoryId) => {
         setActiveSpiceSubCategory(subCategoryId);
+        setActiveTableWareSubCategory(subCategoryId);
 
         const url = new URL(window.location.href);
         url.searchParams.set("subcategory", subCategoryId);
@@ -157,6 +247,9 @@ const ProductPage = () => {
         if (activeCategory === "all") return "ALL PRODUCTS";
         if (activeCategory === "spices" && activeSpiceSubCategory !== "all") {
             return activeSpiceSubCategory === "ground" ? "GROUND SPICES" : "WHOLE SPICES";
+        }
+        if (activeCategory === "tableWare" && activeTableWareSubCategory !== "all") {
+            return activeTableWareSubCategory.replace(/([A-Z])/g, " $1").toUpperCase();
         }
         return activeCategory.toUpperCase();
     };
@@ -185,6 +278,22 @@ const ProductPage = () => {
                             onClick={() => handleSubCategoryChange(subCategory.id)}
                             className={`cursor-pointer rounded-full px-6 py-2 font-medium transition-colors ${
                                 activeSpiceSubCategory === subCategory.id ? "bg-amber-500 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                            }`}
+                        >
+                            {subCategory.name}
+                        </button>
+                    ))}
+                </div>
+            )}
+
+            {activeCategory === "tableWare" && (
+                <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+                    {tableWareSubCategories.map((subCategory) => (
+                        <button
+                            key={subCategory.id}
+                            onClick={() => handleSubCategoryChange(subCategory.id)}
+                            className={`cursor-pointer rounded-full px-6 py-2 font-medium transition-colors ${
+                                activeTableWareSubCategory === subCategory.id ? "bg-amber-500 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                             }`}
                         >
                             {subCategory.name}
