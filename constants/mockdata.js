@@ -25,26 +25,31 @@ export const PRODUCT_RANGE = [
     {
         image: "1Spices.jpg",
         title: "Spices",
+        link: "/product?category=spices",
         description: "We specialize in exporting a wide range of  ground and whole spices, ensuring rich aroma, vibrant flavor, and global quality standards.",
     },
     {
         image: "2Pulses.jpg",
         title: "Pulses",
+        link: "/product?category=pulses",
         description: "We offer a premium selection of pulses and lentils, sourced from trusted farms—ensuring superior quality, freshness, and nutritional value.",
     },
     {
         image: "3Grains.jpg",
         title: "Grains",
+        link: "/product?category=grains",
         description: "Our grain offerings, including millets and wheat flour, are carefully selected for their nutritional richness, freshness, and consistent quality—ideal for diverse culinary uses",
     },
     {
         image: "4OilSeeds.jpg",
         title: "Oilseeds",
+        link: "/product?category=oilseeds",
         description: "We export premium-grade oilseeds, including peanuts and sesame seeds (black & white) sourced for purity, high yield, and global processing standards.",
     },
     {
         image: "5SugarcaneBagasseTableware.jpg",
         title: "Compostable Tableware",
+        link: "/product?category=tableWare",
         description: "Our eco-friendly tableware, made from sugarcane bagasse, is 100% compostable and biodegradable—crafted to deliver premium quality with a commitment to sustainability.",
     },
 ];

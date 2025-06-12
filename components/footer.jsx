@@ -16,29 +16,31 @@ const Footer = () => {
                             <Phone size={14} /> +91 81419 25344
                         </a>
                         <a href="mailto:info@yourcompany.com" className="flex w-fit items-center gap-2 text-sm text-white/80 hover:text-white">
-                            <Mail size={18} /> info@yourcompany.com
+                            <Mail size={18} /> info@kelvyoverseas.com
                         </a>
                     </div>
                     <div>
-                        <h3 className="mb-3 text-lg font-semibold text-white">Address</h3>
-                        <p className="text-sm text-white/80">313, Dhara Trade Center, Mahadev chowk, Mota Varachha, Surat. 394101</p>
-                        <p className="text-sm text-white/80">City, Country</p>
+                        <h3 className="mb-3 text-lg font-semibold text-white">Regd. Office</h3>
+                        <p className="text-sm text-white/80">
+                            313, Dhara Trade Center, <br /> Mahadev chowk, Mota Varachha, <br /> Surat, Gujarat, India - 394101
+                        </p>
+                        {/* <p className="text-sm text-white/80">City, Country</p> */}
                     </div>
                     <div>
-                        <h3 className="mb-3 text-lg font-semibold text-white">Catalog</h3>
+                        <h3 className="mb-3 text-lg font-semibold text-white">Catalogue</h3>
                         <ul className="space-y-2 text-sm text-white/80">
                             <li>
-                                <a href="#" className="hover:text-white">
+                                <a href="/Spices_Catalogue.pdf" download target="_blank" rel="noopener noreferrer" className="hover:text-white">
                                     Spices
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-white">
-                                    Grain & Pulses
+                                <a href="/Grain_Pulses_OilSeeds_Catalogue.pdf" download target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                                    Grain - Pulses & Oil Seeds
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="hover:text-white">
+                                <a href="/Sugarcane_bagasse_Products_catalogue.pdf" download target="_blank" rel="noopener noreferrer" className="hover:text-white">
                                     Tableware
                                 </a>
                             </li>

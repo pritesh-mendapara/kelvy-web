@@ -2,6 +2,7 @@
 
 import { PRODUCT_RANGE } from "@/constants/mockdata";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
@@ -37,9 +38,9 @@ const ProductSlider = () => {
                                     <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                                     <p className="text-gray-600">{item.description}</p>
                                     <div className="text-center">
-                                        <button className="mt-5 inline-flex items-center gap-2 font-semibold text-black hover:underline">
+                                        <Link href={item.link} className="mt-5 inline-flex items-center gap-2 font-semibold text-black hover:underline">
                                             Show More <span className="text-xl">➝</span>
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import "./globals.css";
+import WhatsappButton from "@/components/whatsappButton";
 
 const poppins = Poppins({
     variable: "--font-poppins",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
                 <Navbar />
                 {children}
                 <Footer />
+                <WhatsappButton />
             </body>
         </html>
     );

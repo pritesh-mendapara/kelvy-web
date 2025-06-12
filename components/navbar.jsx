@@ -170,7 +170,7 @@ const Navbar = () => {
                             )}
                         </li>
                         <li className="hover:text-primary-100 cursor-pointer">
-                            <Link href="/contact">Contact</Link>
+                            <Link href="/contact">Contact Us</Link>
                         </li>
                     </ul>
 

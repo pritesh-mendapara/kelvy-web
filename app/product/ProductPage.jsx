@@ -19,8 +19,8 @@ const ProductCard = ({ product }) => {
                 />
                 {isHovered && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 p-3 text-center text-white transition-all duration-300">
-                        <h3 className="mb-1 text-base font-semibold">{product.name}</h3>
-                        <p className="text-xs leading-tight" dangerouslySetInnerHTML={{ __html: product.description.replace(/\n/g, "<br />") }} />
+                        {/* <h3 className="mb-1 text-base font-semibold">{product.name}</h3> */}
+                        <p className="text-sm leading-tight" dangerouslySetInnerHTML={{ __html: product.description.replace(/\n/g, "<br />") }} />
                     </div>
                 )}
             </div>
@@ -181,7 +181,7 @@ const ProductPage = () => {
 
     const filteredProducts = (() => {
         if (activeCategory === "all") {
-            return allProducts;
+            return allProducts.filter((product) => product.category !== "tableWare");
         } else if (activeCategory === "spices") {
             if (activeSpiceSubCategory === "all") {
                 return allProducts.filter((product) => product.category === "spices");

@@ -14,7 +14,7 @@ const slides = [
         id: 2,
         title: "Farm-Fresh Goodness – Packed with Nutrition!",
         description: "High-quality pulses and lentils, sourced from trusted farms, delivering health and taste to your meals.",
-        image: "/s-2.jpg",
+        image: "/s-2.png",
     },
     {
         id: 3,
@@ -63,7 +63,7 @@ const Slider = () => {
                 </motion.h2>
                 <motion.p
                     key={slides[currentIndex].description}
-                    className="text-lg max-w-2xl"
+                    className="max-w-2xl text-lg"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
